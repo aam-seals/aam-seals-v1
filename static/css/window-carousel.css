@@ -55,6 +55,49 @@
     z-index: 10000; /* Bring to front */
 }
 
+/* Initial state of the video container */
+#enlarge-window {
+    transition: transform 0.5s ease-in-out;
+    transform-origin: center center;
+}
+
+/* Keyframes for zoom-in effect */
+@keyframes zoomIn {
+    from {
+        transform: translate(0%, 0%) scale(1);
+    }
+    to {
+        transform: translate(0%, 0%) scale(1.4); /* Adjust scale as needed */
+    }
+}
+
+/* Keyframes for zoom-out effect */
+@keyframes zoomOut {
+    from {
+        transform: translate(0%, 0%) scale(1.4);
+    }
+    to {
+        transform: translate(0%, 0%) scale(1);
+    }
+}
+
+/* Zoomed-in state */
+#enlarge-window.zoomed {
+    position: fixed;
+    /*top: 50%;*/
+    /*left: 50%;*/
+    width: 80%;
+    height: auto;
+    z-index: 10000;
+    animation: zoomIn 0.5s forwards; /* Trigger zoom-in animation */
+}
+
+/* Unzoom (reverse) */
+#enlarge-window.unzoomed {
+    animation: zoomOut 0.5s forwards; /* Trigger zoom-out animation */
+}
+
+
 /* Slide container */
 .carousel-slides {
     display: flex;

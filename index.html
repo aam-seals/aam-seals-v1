@@ -1032,6 +1032,23 @@ var sb_instagram_js_options = {"font_method":"svg","resized_url":"https:\/\/tige
     </script>
 
     <script>
+        function toggleZoom(elementId) {
+    const videoContainer = document.getElementById(elementId);
+
+    if (videoContainer.classList.contains("zoomed")) {
+        // Reverse zoom-in by applying zoom-out animation
+        videoContainer.classList.remove("zoomed");
+        videoContainer.classList.add("unzoomed");
+    } else {
+        // Zoom in
+        videoContainer.classList.remove("unzoomed");
+        videoContainer.classList.add("zoomed");
+    }
+}
+
+
+    </script>
+    <script>
         document.addEventListener("DOMContentLoaded", function () {
         // Locate the carousel and ensure it starts on the first slide (the 3D model)
         const carouselSlides = document.querySelector("#carousel1 .carousel-slides");
