@@ -214,10 +214,22 @@
 }
 
 .social-icon {
-    width: 100%; /* Icon fills container */
-    height: auto;
-    filter: grayscale(100%); /* Start as grey */
-    transition: filter 0.3s ease; /* Smooth transition for filter */
+    width: 100%; /* Set the desired width */
+    height: auto; /* Maintains the aspect ratio */
+    transition: filter 1s ease; /* Smooth transition for filter */
+    animation: bounce 1s infinite; /* Apply the bounce animation */
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0); /* Original position */
+    }
+    40% {
+        transform: translateY(-2px); /* Move up */
+    }
+    60% {
+        transform: translateY(-1px); /* Slightly move down */
+    }
 }
 
 /* Change to color on hover */
