@@ -472,6 +472,106 @@ text-decoration: line-through;
                 <section>
                     <section data-auto-animate>
                         <div class="slide-title">
+                            <p style="font-size:30px;">Aerodynamics</p>
+                        </div>
+                    </section>
+
+                    <section data-auto-animate>
+                        <div class="slide-title">
+                            <p style="font-size:30px;">Aerodynamics</p>
+                            <p style="font-size:25px;">Developed a simplified linear drag force model based on <a href="https://arxiv.org/abs/2307.05263">Jacinto et al. (2023)</a></p>
+                        </div>
+                    </section>
+
+                    <section data-auto-animate>
+                        <div class="slide-title">
+                            <p style="font-size:30px;">Aerodynamics</p>
+                            <p style="font-size:25px;">Developed a simplified linear drag force model based on <a href="https://arxiv.org/abs/2307.05263">Jacinto et al. (2023)</a></p>
+                            <p><span style="color: deeppink;">$F_d = c\vec{v}$</span></p>
+                        </div>
+                    </section>
+
+                    <section data-auto-animate>
+                        <div class="slide-title">
+                            <p style="font-size:30px;">Aerodynamics</p>
+                            <p style="font-size:25px;">Developed a simplified linear drag force model based on <a href="https://arxiv.org/abs/2307.05263">Jacinto et al. (2023)</a></p>
+                            <p><span style="color: deeppink;">$F_d = c\vec{v}$</span></p>
+                            <p><span style="color: deeppink;">$\vec{v} =  \left [ \dot{x} , \dot{y}, \dot{z} \right ]$</span></p>
+                        </div>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-auto-animate>
+                        <div class="slide-title">
+                            <p style="font-size:30px;">Hydrodynamics</p>
+                        </div>
+                    </section>
+
+                    <section data-auto-animate>
+                        <div class="slide-title">
+                            <p style="font-size:30px;">Hydrodynamics</p>
+                            <p style="font-size:25px;">Developed a rigid-body hydrodynamics based on <a href="https://arxiv.org/abs/2310.11927">Amer et al. (2023)</a></p>
+                        </div>
+                    </section>
+
+                    <section data-auto-animate>
+                        <div class="slide-title">
+                            <p style="font-size:30px;">Hydrodynamics</p>
+                            <p style="font-size:25px;">Developed a rigid-body hydrodynamics based on <a href="https://arxiv.org/abs/2310.11927">Amer et al. (2023)</a></p>
+                            <p><span style="color: deeppink;">Efficient but less (visually) realistic</span></p>
+                        </div>
+                    </section>
+
+                    <section data-auto-animate>
+                        <div class="slide-title">
+                            <p style="font-size:30px;">Hydrodynamics</p>
+                            <p style="font-size:25px;">Developed a rigid-body hydrodynamics based on <a href="https://arxiv.org/abs/2310.11927">Amer et al. (2023)</a></p>
+                            <p><span style="color: deeppink;">Efficient but less (visually) realistic</span></p>
+                            <p style="font-size:25px;">Developed a particle-based hydrodynamics based on <a href="https://mmacklin.com/uppfrta_preprint.pdf">Macklin et al. (2014)</a> in Isaac Sim</p>
+                        </div>
+                    </section>
+
+                    <section data-auto-animate>
+                        <div class="slide-title">
+                            <p style="font-size:30px;">Hydrodynamics</p>
+                            <p style="font-size:25px;">Developed a rigid-body hydrodynamics based on <a href="https://arxiv.org/abs/2310.11927">Amer et al. (2023)</a></p>
+                            <p><span style="color: deeppink;">Efficient but less (visually) realistic</span></p>
+                            <p style="font-size:25px;">Developed a particle-based hydrodynamics based on <a href="https://mmacklin.com/uppfrta_preprint.pdf">Macklin et al. (2014)</a> in Isaac Sim</p>
+                            <p><span style="color: deeppink;">Realistic but less efficient</span></p>
+                        </div>
+                    </section>
+
+                    <section data-auto-animate="">
+                        <div class="slide-title">
+                            <p style="font-size:30px;">Comparison of the two Hydrodynamics</p>
+                        </div>
+                    </section>
+
+                    <section data-auto-animate>
+                        <div class="slide-title">
+                            <p style="font-size:15px;">Comparison of the two Hydrodynamics</p>
+                            <p style="font-size:30px;">Rigid-body Hydrodynamics</p>
+                            <video width="100%" controls autoplay muted loop>
+                            <source src="media/videos/AAM_SEAL_7.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </section>
+
+                    <section data-auto-animate>
+                        <div class="slide-title">
+                            <p style="font-size:15px;">Comparison of the two Hydrodynamics</p>
+                            <p style="font-size:30px;">Particle-based Hydrodynamics</p>
+                            <video width="100%" controls autoplay muted loop>
+                            <source src="media/videos/AAM_SEAL_8.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-auto-animate>
+                        <div class="slide-title">
                             <p style="font-size:30px;">Simulator Realism</p>
                         </div>
                     </section>
@@ -732,6 +832,20 @@ var sb_instagram_js_options = {"font_method":"svg","resized_url":"https:\/\/tige
 </script>
 <script type="text/javascript" src="//zone1-1d947.kxcdn.com/wp-content/plugins/instagram-feed/js/sbi-scripts.min.js?ver=6.5.1" id="sbi_scripts-js"></script>
 
+
+    <!-- MathJax Configuration -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
 <!-- Include Three.js, URDFLoader, and OrbitControls -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script type="module" src="static/js/URDFLoader.js"></script>
@@ -741,6 +855,7 @@ var sb_instagram_js_options = {"font_method":"svg","resized_url":"https:\/\/tige
 
     <!-- Include Reveal.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.min.js"></script>
+
 
     <script>
         // Create and initialize the first Reveal.js instance
@@ -758,6 +873,7 @@ var sb_instagram_js_options = {"font_method":"svg","resized_url":"https:\/\/tige
 <!--            loop: true,-->
 <!--            minScale: 1,-->
 <!--            maxScale: 1,-->
+
         });
         deck1.initialize();
 
@@ -773,6 +889,8 @@ var sb_instagram_js_options = {"font_method":"svg","resized_url":"https:\/\/tige
             margin: 0,
 <!--            autoSlide: 5000,-->
 <!--            loop: true,-->
+<!--            plugins: [ RevealMath.KaTeX ],-->
+
 
         });
         deck2.initialize();
