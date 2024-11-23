@@ -1,7 +1,7 @@
 /* Container for the carousels */
 .carousel-container {
-    width: 600px;
-    height: 400px;
+    width: 520px;
+    height: 380px;
     margin: 0 auto; /* Center horizontally */
     display: flex; /* Use flexbox to split content */
     gap: 20px; /* Space between the sub-windows */
