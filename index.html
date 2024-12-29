@@ -34,7 +34,6 @@ filter: none;
 <link rel="stylesheet" type="text/css" href="//zone1-1d947.kxcdn.com/wp-content/cache/wpfc-minified/ml8p18r8/a879i.css" media="all"/>
 
 <style>
-    .threeD-container { width: 100%; height: 500px; background-color: #f0f0f0; }
 
     .btn-3D { position: absolute; top: 20px; right: 20px; }
 </style>
@@ -431,7 +430,7 @@ text-decoration: line-through;
                 <section data-background_overlay_color="white">
                     <div class="slide-title">
                         <p>Robot (AAM) Model</p>
-                        <div class="threeD-container slide-c" id="threeDModel"></div>
+                        <div class="threeD-container" id="threeDModel"></div>
                     </div>
 
                 </section>
@@ -873,46 +872,6 @@ var sb_instagram_js_options = {"font_method":"svg","resized_url":"https:\/\/tige
     <!-- Include Reveal.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.min.js"></script>
 
-
-    <script>
-        // Create and initialize the first Reveal.js instance
-        let deck1 = new Reveal(document.querySelector('.deck1'), {
-            embedded: true,
-            keyboardCondition: 'focused',
-            controls: true,
-            progress: true,
-            slideNumber: true,
-            transition: 'slide',
-            width: '100%',
-            height: '100%',
-            margin: 0,
-<!--            autoSlide: 5000,-->
-<!--            loop: true,-->
-<!--            minScale: 1,-->
-<!--            maxScale: 1,-->
-
-        });
-        deck1.initialize();
-
-        // Create and initialize the second Reveal.js instance
-        let deck2 = new Reveal(document.querySelector('.deck2'), {
-            embedded: true,
-            controls: true,
-            progress: true,
-            slideNumber: true,
-            transition: 'slide',
-            width: '100%',
-            height: '100%',
-            margin: 0,
-<!--            autoSlide: 5000,-->
-<!--            loop: true,-->
-<!--            plugins: [ RevealMath.KaTeX ],-->
-
-
-        });
-        deck2.initialize();
-    </script>
-
     <script>
         let scene, camera, renderer, robot, controls, is3DModelFocused = false;
 
@@ -923,22 +882,21 @@ var sb_instagram_js_options = {"font_method":"svg","resized_url":"https:\/\/tige
 
             // Camera setup
             camera = new THREE.PerspectiveCamera(60, window.innerWidth / 500, 0.1, 1000);
-            camera.position.set(3, 3, 3); // Position camera
+            camera.position.set(1, 1, 1); // Position camera
 
-            // Renderer setup with pixel ratio and antialiasing
+            // Renderer setup
             renderer = new THREE.WebGLRenderer({ antialias: true });
-            renderer.setSize(window.innerWidth, 500);
-            renderer.setPixelRatio(window.devicePixelRatio); // Higher pixel ratio for clearer rendering
-            document.getElementById('threeDModel').appendChild(renderer.domElement);
+            const threeDContainer = document.getElementById('threeDModel');
+            threeDContainer.appendChild(renderer.domElement);
 
-            // Add lighting
+            // Lighting
             const ambientLight = new THREE.AmbientLight(0x606060, 1.5);
             scene.add(ambientLight);
             const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
             directionalLight.position.set(5, 10, 7.5).normalize();
             scene.add(directionalLight);
 
-            // URDFLoader setup
+            // Load URDF
             const loader = new URDFLoader();
             loader.load(
                 'https://aam-seals.github.io/aam-seals-v1/media/drone_gripper_1/urdf/drone_gripper_11.urdf',
@@ -947,100 +905,114 @@ var sb_instagram_js_options = {"font_method":"svg","resized_url":"https:\/\/tige
                     scene.add(robot);
                     robot.rotation.y = Math.PI; // Rotate for visibility
 
-                    // Set up joint controls with dat.GUI
-                    setupJointControls(robot);
+                    robot.scale.set(3, 3, 3);
+
+                    resizeRenderer(); // Ensure initial rendering
+                    renderer.render(scene, camera);
                 },
                 undefined,
                 (error) => {
-                    console.error('Error loading URDF or mesh:', error);
+                    console.error('Error loading URDF:', error);
                 }
             );
 
-            // OrbitControls for 3D interaction
+            // OrbitControls
             controls = new THREE.OrbitControls(camera, renderer.domElement);
             controls.enableZoom = true;
             controls.enablePan = true;
-            controls.enabled = false; // Start with controls disabled
+            controls.enabled = false;
 
-            // Event listeners for enabling/disabling controls
-            const threeDModelContainer = document.getElementById('threeDModel');
-            threeDModelContainer.addEventListener('mouseenter', () => {
+            threeDContainer.addEventListener('mouseenter', () => {
                 controls.enabled = true;
-                is3DModelFocused = true;
             });
-            threeDModelContainer.addEventListener('mouseleave', () => {
+            threeDContainer.addEventListener('mouseleave', () => {
                 controls.enabled = false;
-                is3DModelFocused = false;
             });
 
             animate();
         }
 
-        function animate() {
-            requestAnimationFrame(animate);
-            if (is3DModelFocused) controls.update(); // Update controls only if focused
-            renderer.render(scene, camera);
-        }
-
-        function changeView() {
-            if (robot) robot.rotation.y += Math.PI / 2;
-        }
-
-        function setupJointControls(robot) {
-            const gui = new dat.GUI();
-            const jointControls = {}; // Store the controls for each joint
-
-            // Iterate through each joint in the robot model
-            robot.traverse((child) => {
-                if (child.isURDFJoint && child.jointType === 'revolute') {
-                    console.log(`Found joint: ${child.name}`);
-                    const jointName = child.name;
-                    jointControls[jointName] = { angle: 0 };
-
-                    // Add a slider for each joint
-                    gui.add(jointControls[jointName], 'angle', -Math.PI, Math.PI)
-                        .name(jointName)
-                        .onChange((value) => {
-                            child.setJointValue(value); // Update joint rotation
-                        });
-                }
-            });
-
-        }
-
-        function toggleZoom(carouselId) {
-            console.log("toggleZoom called"); // Debug message
-            const carousel = document.getElementById(carouselId);
-            if (carousel) {
-                carousel.classList.toggle("zoomed");
-                console.log("Zoom toggled for", carouselId); // Debug message
-            } else {
-                console.log("Carousel element not found"); // Debug message
+        function resizeRenderer() {
+            const threeDContainer = document.getElementById('threeDModel');
+            if (threeDContainer) {
+                const containerWidth = threeDContainer.offsetWidth;
+                const containerHeight = threeDContainer.offsetHeight;
+                renderer.setSize(containerWidth, containerHeight);
+                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+                camera.aspect = containerWidth / containerHeight;
+                camera.updateProjectionMatrix();
             }
         }
 
-<!--        // Example function for carousel slide navigation-->
-<!--        let currentSlide = { carousel1: 0, carousel2: 0 };-->
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
 
-<!--        function slideNext(carouselId) {-->
-<!--            const carousel = document.getElementById(carouselId);-->
-<!--            const slides = carousel.querySelector('.carousel-slides');-->
-<!--            const totalSlides = slides.children.length;-->
+        // Initialize Reveal.js and add event listeners
+        function setupRevealAnd3D() {
+            // Create and initialize the first Reveal.js instance
+            let deck1 = new Reveal(document.querySelector('.deck1'), {
+                embedded: true,
+                keyboardCondition: 'focused',
+                controls: true,
+                progress: true,
+                slideNumber: true,
+                transition: 'slide',
+                width: '100%',
+                height: '100%',
+                margin: 0,
+    <!--            autoSlide: 5000,-->
+    <!--            loop: true,-->
+    <!--            minScale: 1,-->
+    <!--            maxScale: 1,-->
 
-<!--            currentSlide[carouselId] = (currentSlide[carouselId] + 1) % totalSlides;-->
-<!--            slides.style.transform = `translateX(-${currentSlide[carouselId] * 100}%)`;-->
-<!--        }-->
+            });
+            deck1.initialize();
 
-<!--        function slidePrev(carouselId) {-->
-<!--            const carousel = document.getElementById(carouselId);-->
-<!--            const slides = carousel.querySelector('.carousel-slides');-->
-<!--            const totalSlides = slides.children.length;-->
+            // Create and initialize the second Reveal.js instance
+            let deck2 = new Reveal(document.querySelector('.deck2'), {
+                embedded: true,
+                controls: true,
+                progress: true,
+                slideNumber: true,
+                transition: 'slide',
+                width: '100%',
+                height: '100%',
+                margin: 0,
+    <!--            autoSlide: 5000,-->
+    <!--            loop: true,-->
+    <!--            plugins: [ RevealMath.KaTeX ],-->
 
-<!--            currentSlide[carouselId] = (currentSlide[carouselId] - 1 + totalSlides) % totalSlides;-->
-<!--            slides.style.transform = `translateX(-${currentSlide[carouselId] * 100}%)`;-->
-<!--        }-->
 
-        window.onload = init3D;
+            });
+            deck2.initialize();
+
+            // Wait for the deck to be ready and initialize 3D rendering
+            deck1.getRevealElement().addEventListener('ready', () => {
+                resizeRenderer();
+                renderer.render(scene, camera);
+            });
+
+            // Handle slide change to re-render the robot
+            deck1.getRevealElement().addEventListener('slidechanged', (event) => {
+                const threeDContainer = document.getElementById('threeDModel');
+                if (event.currentSlide.contains(threeDContainer)) {
+                    resizeRenderer();
+                    renderer.render(scene, camera);
+                }
+            });
+
+            // Initialize the 3D scene
+            init3D();
+        }
+
+        // Initialize everything after the page loads
+        window.onload = () => {
+            setupRevealAnd3D();
+        };
+
     </script>
 
     <script>
