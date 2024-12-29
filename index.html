@@ -941,7 +941,7 @@ var sb_instagram_js_options = {"font_method":"svg","resized_url":"https:\/\/tige
             // URDFLoader setup
             const loader = new URDFLoader();
             loader.load(
-                'media/drone_gripper_1/urdf/drone_gripper_1.urdf',
+                'https://aam-seals.github.io/aam-seals-v1/media/drone_gripper_1/urdf/drone_gripper_11.urdf',
                 (urdf) => {
                     robot = urdf;
                     scene.add(robot);
@@ -1060,38 +1060,38 @@ var sb_instagram_js_options = {"font_method":"svg","resized_url":"https:\/\/tige
 
 
     </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-        // Locate the carousel and ensure it starts on the first slide (the 3D model)
+<!--    <script>-->
+<!--        document.addEventListener("DOMContentLoaded", function () {-->
+<!--        // Locate the carousel and ensure it starts on the first slide (the 3D model)-->
 <!--        const carouselSlides = document.querySelector("#deck1 .slides");-->
 <!--        carouselSlides.style.transform = "translateX(0%)"; // Set to first slide-->
 
-        // Locate the 3D model container and initialize the 3D model
-        const container = document.getElementById("threeDModel");
-        if (container) {
-            initialize3DModel(container);
-        }
-    });
+<!--        // Locate the 3D model container and initialize the 3D model-->
+<!--        const container = document.getElementById("threeDModel");-->
+<!--        if (container) {-->
+<!--            initialize3DModel(container);-->
+<!--        }-->
+<!--    });-->
 
-    // Function to initialize the 3D model in the provided container
-    function initialize3DModel(container) {
-        // Replace with your 3D setup, e.g., Three.js or another library
-        console.log("Initializing 3D model...");
-        // For example: let scene = new THREE.Scene(); ... (Three.js initialization code)
-    }
+<!--    // Function to initialize the 3D model in the provided container-->
+<!--    function initialize3DModel(container) {-->
+<!--        // Replace with your 3D setup, e.g., Three.js or another library-->
+<!--        console.log("Initializing 3D model...");-->
+<!--        // For example: let scene = new THREE.Scene(); ... (Three.js initialization code)-->
+<!--    }-->
 
-    document.addEventListener("DOMContentLoaded", function() {
-    const threeDModel = document.getElementById("threeDModel");
-    if (threeDModel) {
-        console.log("threeDModel is present:", threeDModel);
-        console.log("Width:", threeDModel.offsetWidth, "Height:", threeDModel.offsetHeight);
-    } else {
-        console.error("threeDModel element not found.");
-    }
-});
+<!--    document.addEventListener("DOMContentLoaded", function() {-->
+<!--    const threeDModel = document.getElementById("threeDModel");-->
+<!--    if (threeDModel) {-->
+<!--        console.log("threeDModel is present:", threeDModel);-->
+<!--        console.log("Width:", threeDModel.offsetWidth, "Height:", threeDModel.offsetHeight);-->
+<!--    } else {-->
+<!--        console.error("threeDModel element not found.");-->
+<!--    }-->
+<!--});-->
 
 
-    </script>
+<!--    </script>-->
 
 </body>
 </html>
