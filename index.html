@@ -882,7 +882,7 @@ var sb_instagram_js_options = {"font_method":"svg","resized_url":"https:\/\/tige
 
             // Camera setup
             camera = new THREE.PerspectiveCamera(60, window.innerWidth / 500, 0.1, 1000);
-            camera.position.set(1, 1, 1); // Position camera
+            camera.position.set(0.9, 0.9, 0.9); // Position camera
 
             // Renderer setup
             renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -903,7 +903,8 @@ var sb_instagram_js_options = {"font_method":"svg","resized_url":"https:\/\/tige
                 (urdf) => {
                     robot = urdf;
                     scene.add(robot);
-                    robot.rotation.y = Math.PI; // Rotate for visibility
+                    robot.rotation.x = -3*Math.PI/4; // Rotate for visibility
+                    robot.rotation.y = -Math.PI/4; // Rotate for visibility
 
                     robot.scale.set(3, 3, 3);
 
