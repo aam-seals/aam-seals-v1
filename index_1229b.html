@@ -65,10 +65,12 @@ var monsterinsights_frontend = {"js_events_tracking":"true","download_extensions
 <script src='//zone1-1d947.kxcdn.com/wp-content/cache/wpfc-minified/efwkokrg/f9lk1.js' type="text/javascript"></script>
 <!-- <script type="text/javascript" src="//zone1-1d947.kxcdn.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script> -->
 <!-- <script type="text/javascript" src="//zone1-1d947.kxcdn.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
 <!--Our CSS  -->
 <link rel="stylesheet" href="./static/css/index.css">
 <link rel="stylesheet" href="./static/css/window-carousel.css">
+<!--<link rel="stylesheet" href="./static/css/tv-effect.css">-->
 
 <!--[if lte IE 9]>
 <link rel="stylesheet" type="text/css" href="//zone1-1d947.kxcdn.com/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]--><style type="text/css">.broken_link, a.broken_link {
@@ -145,40 +147,43 @@ text-decoration: line-through;
     <div class="q_slider">
         <div class="q_slider_inner">
             <div id="qode-home-slider" class="carousel slide full_screen  q_auto_start header_effect  header_not_transparent" data-slide_animation="6000"  data-parallax="yes" style=" ">
-                <div class="qode_slider_preloader" style="">
-                    <div class="ajax_loader_slider" >
-                        <div class="ajax_loader_1">
-                            <div class="spinner"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div>
-                            </div>
-                        </div>
-                    </div>
+<!--                <div class="qode_slider_preloader" style="">-->
+<!--                    <div class="ajax_loader_slider" >-->
+<!--                        <div class="ajax_loader_1">-->
+<!--                            <div class="spinner">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+                <div class="screen">
+                <!-- This container is styled by the TV effect loader script -->
                 </div>
                 <div class="carousel-inner" data-start="transform: translateY(0px);" data-1440="transform: translateY(-900px);">
                     <div class="item dark">
                         <!-- Video container with video and overlay icon -->
-                        <div class="video-container">
-                            <!-- Video window to be enlarged on hover or click -->
-                                <div class="video" id="enlarge-window">
+<!--                        <div class="video-container">-->
+<!--                            &lt;!&ndash; Video window to be enlarged on hover or click &ndash;&gt;-->
+<!--                                <div class="video" id="enlarge-window">-->
 
-                                    <div class="video-wrap">
-                                        <video class="video" controls="controls" preload="auto" loop autoplay muted>
-                                            <source type="video/mp4" src="media/videos/catch_crab_air.mp4">
+<!--                                    <div class="video-wrap">-->
+<!--                                        <video class="video" controls="controls" preload="auto" loop autoplay muted>-->
+<!--                                            <source type="video/mp4" src="media/videos/catch_crab_air.mp4">-->
 
-                                        </video>
-                                    </div>
-                                </div>
+<!--                                        </video>-->
+<!--                                    </div>-->
+<!--                                </div>-->
 
-                            <!-- Zoom Icon for Left Sub-Window -->
-                                <div class="icon-container">
-                                    <img src="static/images/icon_snipper.png" alt="Zoom Icon" class="icon" onclick="toggleZoom('enlarge-window')">
-                                </div>
+<!--                            &lt;!&ndash; Zoom Icon for Left Sub-Window &ndash;&gt;-->
+<!--                                <div class="icon-container">-->
+<!--                                    <img src="static/images/icon_snipper.png" alt="Zoom Icon" class="icon" onclick="toggleZoom('enlarge-window')">-->
+<!--                                </div>-->
 
 
-<!--                            &lt;!&ndash; Icon overlay for triggering enlargement &ndash;&gt;-->
-<!--                            <div class="icon-container">-->
-<!--                                <img src="static/images/icon_snipper.png" alt="Icon" class="icon" id="enlarge-window">-->
-<!--                            </div>-->
-                        </div>
+<!--&lt;!&ndash;                            &lt;!&ndash; Icon overlay for triggering enlargement &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="icon-container">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <img src="static/images/icon_snipper.png" alt="Icon" class="icon" id="enlarge-window">&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--                        </div>-->
                     </div>
                 </div>
 
@@ -861,96 +866,21 @@ var sb_instagram_js_options = {"font_method":"svg","resized_url":"https:\/\/tige
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+    <script src="static/js/tv-effect.js"></script> <!-- Save the above JavaScript as script.js -->
+
 
 <!-- Include Three.js, URDFLoader, and OrbitControls -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script type="module" src="static/js/URDFLoader.js"></script>
     <script src="https://unpkg.com/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
     <script src="https://unpkg.com/three@0.128.0/examples/js/loaders/STLLoader.js"></script>
-<!--    <script src="https://cdn.jsdelivr.net/npm/dat.gui@0.7.7/build/dat.gui.min.js"></script>-->
-<script src="https://cdn.jsdelivr.net/npm/lil-gui"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dat.gui@0.7.7/build/dat.gui.min.js"></script>
 
     <!-- Include Reveal.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.min.js"></script>
 
     <script>
         let scene, camera, renderer, robot, controls, is3DModelFocused = false;
-
-function placeGUIInThreeDContainer(gui) {
-    console.log('placeGUIInThreeDContainer called');
-
-    // Select the .threeD-container
-    const threeDContainer = document.querySelector('.threeD-container');
-    console.log('.threeD-container:', threeDContainer);
-
-    if (threeDContainer) {
-        // Add the GUI to the .threeD-container
-        threeDContainer.appendChild(gui.domElement);
-
-        setTimeout(() => {
-           gui.close();
-           gui.open();
-        }, 500);
-
-        // Style the GUI to position it within or relative to the .threeD-container
-        gui.domElement.style.position = 'absolute';
-        gui.domElement.style.top = '-65px'; // Adjust as needed
-        gui.domElement.style.left = '0px'; // Adjust as needed
-        gui.domElement.style.zIndex = '1000'; // Ensure it appears above other elements
-        gui.domElement.style.backgroundColor = 'rgba(0, 0, 0, 0)'; // Optional: Make it stand out
-        gui.domElement.style.padding = '5px'; // Optional: Add padding for better UI
-
-        // Set the size limit for the GUI window
-        gui.domElement.style.width = '153px';  // Set the desired width
-        gui.domElement.style.height = '140px'; // Set the desired height
-
-        // Change the font color and size for the entire GUI
-        gui.domElement.style.fontSize = '12px'; // Set the font size
-        gui.domElement.style.color = 'white';   // Set the font color
-        gui.domElement.style.fontWeight = 'bold'; // Make the font bold
-
-        // Optionally fold the GUI by default
-        gui.close(); // This will collapse the GUI upon initialization
-
-        console.log('GUI placed in .threeD-container.');
-    } else {
-        console.error('.threeD-container not found. GUI placement failed.');
-    }
-}
-
-function setupJointControls(robot) {
-    const gui = new lil.GUI(); // Create a GUI instance
-    const jointControls = {}; // Store the controls for each joint
-
-    robot.traverse((child) => {
-        if (child.isURDFJoint && (child.jointType === 'revolute' || child.jointType === 'continuous')) {
-            const jointName = child.name || `Joint-${Math.random()}`; // Fallback for missing names
-            console.log(`Setting up control for joint: ${jointName}`);
-
-            jointControls[jointName] = { angle: 0 };
-
-            // Set default limits for `continuous` joints (allow full rotation)
-            const lowerLimit = child.jointType === 'continuous' ? -Math.PI : child.limit?.lower ?? -Math.PI;
-            const upperLimit = child.jointType === 'continuous' ? Math.PI : child.limit?.upper ?? Math.PI;
-
-            // Add a slider for the joint
-            gui.add(jointControls[jointName], 'angle', lowerLimit, upperLimit)
-                .name(jointName)
-                .onChange((value) => {
-                    child.setJointValue(value); // Update the joint rotation
-                    renderer.render(scene, camera); // Re-render the scene
-                });
-        }
-    });
-
-    // Wait for the left sub-window (deck1) to be ready, then place the GUI
-    placeGUIInThreeDContainer(gui);
-
-    console.log('Joint controls:', jointControls);
-}
-
-
-
 
         function init3D() {
             // Set up Three.js basics
@@ -984,9 +914,6 @@ function setupJointControls(robot) {
                     robot.rotation.y = -Math.PI/4; // Rotate for visibility
 
                     robot.scale.set(3, 3, 3);
-
-                    // Set up joint controls
-                    setupJointControls(robot);
 
                     resizeRenderer(); // Ensure initial rendering
                     renderer.render(scene, camera);
@@ -1051,7 +978,6 @@ function setupJointControls(robot) {
 
             });
             deck1.initialize();
-            console.log('Reveal.js deck1 initialized');
 
             // Create and initialize the second Reveal.js instance
             let deck2 = new Reveal(document.querySelector('.deck2'), {
