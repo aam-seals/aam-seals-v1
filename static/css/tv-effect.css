@@ -1,4 +1,4 @@
-.screen {
+.screen_tv {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -12,28 +12,28 @@
   background: -webkit-linear-gradient(to left, #16222A, #3A6073);
   background: linear-gradient(to left, #16222A, #3A6073);
   background-size: cover;
-  background-image: url(https://cldup.com/gn3s3Fg75t.gif); /* TV static GIF */
+  background-image: url('https://cldup.com/gn3s3Fg75t.gif'); /* TV static GIF */
 }
 
-.screen.hidden {
-  opacity: 0;
-  transform: scale(0.9);
-  pointer-events: none;
-}
+/*.screen.hidden {*/
+/*  opacity: 0;*/
+/*  transform: scale(0.9);*/
+/*  pointer-events: none;*/
+/*}*/
 
-.qode_slider_preloader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: #e1eef6;
-  z-index: 1000;
-}
+/*.qode_slider_preloader {*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  align-items: center;*/
+/*  width: 100%;*/
+/*  height: 100%;*/
+/*  position: fixed;*/
+/*  top: 0;*/
+/*  left: 0;*/
+/*  background: #e1eef6;*/
+/*  z-index: 1000;*/
+/*}*/
 
-.content_inner {
-  display: none; /* Hide main content initially */
-}
+/*.content_inner {*/
+/*  display: none; !* Hide main content initially *!*/
+/*}*/
