@@ -15,6 +15,44 @@
   background-image: url('https://cldup.com/gn3s3Fg75t.gif'); /* TV static GIF */
 }
 
+.content_tv {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1100; /* Ensure it appears above the TV effect */
+    text-align: center;
+    font-family: "DejaVu Serif";
+}
+
+.spinner {
+    position: absolute;
+    top: 60%; /* Adjust vertical position */
+    left: 50%; /* Adjust horizontal position */
+    transform: translate(-50%, -50%); /* Center spinner */
+    z-index: 1100;
+}
+
+.bounce1, .bounce2, .bounce3 {
+    /*background-color: #fff;*/
+    width: 15px;
+    height: 15px;
+    margin: 8px;
+    border-radius: 50%;
+    animation: bounce 1.4s infinite ease-in-out both;
+    background-color: yellow !important;
+}
+
+/* Keyframes (unchanged) */
+@keyframes bounce {
+    0%, 80%, 100% {
+        transform: scale(0);
+    }
+    40% {
+        transform: scale(1);
+    }
+}
+
 /*.screen.hidden {*/
 /*  opacity: 0;*/
 /*  transform: scale(0.9);*/
